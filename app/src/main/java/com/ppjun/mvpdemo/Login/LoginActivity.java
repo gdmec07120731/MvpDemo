@@ -39,7 +39,8 @@ public class LoginActivity extends Activity implements LoginConstract.View {
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mLoginPresenter.login(mUsername.getText().toString(), mPassword.getText().toString());
+                mPresenter.login(mUsername.getText().toString(), mPassword.getText().toString());
+
             }
         });
     }
@@ -50,7 +51,7 @@ public class LoginActivity extends Activity implements LoginConstract.View {
         mPassword = (EditText) findViewById(R.id.ed_password);
         mLogin = (Button) findViewById(R.id.btn_login);
         mProgress = (ProgressBar) findViewById(R.id.progressbar);
-        mLoginPresenter = new LoginPresenter(this);
+        mLoginPresenter = new LoginPresenter(this);//让view绑定presenter
 
     }
 
@@ -83,6 +84,6 @@ public class LoginActivity extends Activity implements LoginConstract.View {
 
     @Override
     public void setPresenter(LoginConstract.Presenter presenter) {
-        this.mPresenter = presenter;
+     this.mPresenter = presenter;
     }
 }

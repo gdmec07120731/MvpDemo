@@ -8,6 +8,6 @@ package com.ppjun.mvpdemo;
  */
 
 public interface BaseView<T> {
-    //在view层 给LoginContract.Presenter赋值
+    //在view层 给LoginConstract.Presenter赋值
     void setPresenter(T presenter);
 }
