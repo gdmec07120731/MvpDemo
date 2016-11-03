@@ -21,7 +21,6 @@ import com.ppjun.mvpdemo.R;
 public class LoginActivity extends Activity implements LoginConstract.View {
 
     private LoginConstract.Presenter mPresenter;
-    private LoginPresenter mLoginPresenter;
     private EditText mUsername;
     private EditText mPassword;
     private Button mLogin;
@@ -51,7 +50,7 @@ public class LoginActivity extends Activity implements LoginConstract.View {
         mPassword = (EditText) findViewById(R.id.ed_password);
         mLogin = (Button) findViewById(R.id.btn_login);
         mProgress = (ProgressBar) findViewById(R.id.progressbar);
-        mLoginPresenter = new LoginPresenter(this);//让view绑定presenter
+        mPresenter = new LoginPresenter(this);//给LoginPresenter的view赋值和让view绑定presenter
 
     }
 
@@ -84,6 +83,7 @@ public class LoginActivity extends Activity implements LoginConstract.View {
 
     @Override
     public void setPresenter(LoginConstract.Presenter presenter) {
-     this.mPresenter = presenter;
+        //LoginPresenter继承了LoginConstract.Presenter，在这里会把LoginPresenter的实例赋值给mPresenter
+        this.mPresenter = presenter;
     }
 }
